@@ -1,14 +1,16 @@
 import React from 'react';
 import {Text, Card, Button, Icon} from '@rneui/themed';
-const UserCard = () => {
+const UserCard = ({user}) => {
   return (
     <Card>
-      <Card.Title>HELLO WORLD</Card.Title>
+      <Card.Title>{user?.name ? user.name : 'Test User'}</Card.Title>
       <Card.Divider />
       <Card.Image
-        style={{padding: 0}}
+        style={{width: 300, height: 400, padding: 100}}
         source={{
-          uri: 'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg',
+          uri: user?.avatar
+            ? user?.avatar
+            : 'https://images.unsplash.com/photo-1488161628813-04466f872be2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80',
         }}
       />
       <Text style={{marginBottom: 10}}>
@@ -31,4 +33,4 @@ const UserCard = () => {
   );
 };
 
-export default Card;
+export default UserCard;
